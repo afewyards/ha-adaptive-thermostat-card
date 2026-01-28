@@ -262,8 +262,7 @@ export class ClimateCard
 
   renderAdaptiveBadge(entity: ClimateEntity) {
     // Get status.conditions from entity attributes
-    const entityAttrs = entity.attributes as any;
-    const status = entityAttrs.status as { conditions?: string[] } | undefined;
+    const status = (entity.attributes as any).status as { conditions?: string[] } | undefined;
     const conditions = status?.conditions ?? [];
     const presetMode = entity.attributes.preset_mode;
 

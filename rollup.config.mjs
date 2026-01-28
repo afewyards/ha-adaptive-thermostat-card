@@ -45,17 +45,7 @@ const plugins = [
   getBabelInputPlugin({
     babelHelpers: "bundled",
   }),
-  getBabelOutputPlugin({
-    presets: [
-      [
-        "@babel/preset-env",
-        {
-          modules: false,
-        },
-      ],
-    ],
-    compact: true,
-  }),
+  // Babel output plugin removed - was causing class name mangling issues
   ...(dev ? [serve(serveOptions)] : [terser()]),
 ];
 
