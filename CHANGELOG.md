@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.6.0...v1.6.1) (2026-01-28)
+
+
+### Bug Fixes
+
+* use correct flat attribute paths for PID and learning data ([620f4d9](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/620f4d9e34b6476284d4baf76f2e38f9528f446b))
+
 # [1.6.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.5.0...v1.6.0) (2026-01-28)
 
 
