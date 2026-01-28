@@ -15,7 +15,7 @@
     }],
     ["@semantic-release/github", {
       "assets": [
-        {"path": "dist/mushroom.js", "label": "mushroom.js"}
+        {"path": "dist/adaptive-thermostat-card.js", "label": "adaptive-thermostat-card.js"}
       ]
     }]
   ]
