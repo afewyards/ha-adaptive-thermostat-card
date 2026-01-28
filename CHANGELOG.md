@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.0.0...v1.1.0) (2026-01-28)
+
+
+### Features
+
+* add adaptive thermostat condition badges and action-based colors ([638aba8](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/638aba875400b9abe80ab985f83aee2987ccc23b))
+
 # 1.0.0 (2026-01-28)
 
 
