@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.5.0...v1.6.0) (2026-01-28)
+
+
+### Features
+
+* add info popup button showing thermostat details ([ec30de3](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/ec30de3eb4949dc7d953f81bd54efce044c17a96))
+
 # [1.5.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.4.1...v1.5.0) (2026-01-28)
 
 
