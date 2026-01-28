@@ -4,9 +4,9 @@ import { styleMap } from "lit/directives/style-map.js";
 import { HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
 import { COLORS, computeColorName, computeRgbColor } from "../../utils/colors";
-import "./../form/mushroom-select";
+import "./../form/adaptive-select";
 
-@customElement("mushroom-color-picker")
+@customElement("adaptive-color-picker")
 export class ColorPicker extends LitElement {
   @property() public label = "";
 
@@ -33,7 +33,7 @@ export class ColorPicker extends LitElement {
     const customLocalize = setupCustomlocalize(this.hass);
 
     return html`
-      <mushroom-select
+      <adaptive-select
         .icon=${Boolean(this.value)}
         .label=${this.label}
         .configValue=${this.configValue}
@@ -59,7 +59,7 @@ export class ColorPicker extends LitElement {
             </mwc-list-item>
           `
         )}
-      </mushroom-select>
+      </adaptive-select>
     `;
   }
 
@@ -76,7 +76,7 @@ export class ColorPicker extends LitElement {
 
   static get styles(): CSSResultGroup {
     return css`
-      mushroom-select {
+      adaptive-select {
         width: 100%;
       }
       .circle-color {

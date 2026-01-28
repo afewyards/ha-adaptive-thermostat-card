@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { Appearance } from "./config/appearance-config";
 
-@customElement("mushroom-card")
+@customElement("adaptive-card")
 export class Card extends LitElement {
   @property() public appearance?: Appearance;
 
@@ -58,13 +58,13 @@ export class Card extends LitElement {
         --control-spacing: var(--spacing);
         --control-height: var(--icon-size);
       }
-      .container > ::slotted(mushroom-state-item) {
+      .container > ::slotted(adaptive-state-item) {
         flex: 1;
       }
-      .container.horizontal.no-info > ::slotted(mushroom-state-item) {
+      .container.horizontal.no-info > ::slotted(adaptive-state-item) {
         flex: none;
       }
-      .container.no-content > ::slotted(mushroom-state-item) {
+      .container.no-content > ::slotted(adaptive-state-item) {
         display: none;
       }
       .container.no-content > ::slotted(.actions) {

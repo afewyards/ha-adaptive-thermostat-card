@@ -2,7 +2,7 @@ import { css, CSSResultGroup, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
-import "./../form/mushroom-select";
+import "./../form/adaptive-select";
 
 const LAYOUTS = ["default", "horizontal", "vertical"] as const;
 type Layout = (typeof LAYOUTS)[number];
@@ -13,7 +13,7 @@ const ICONS: Record<Layout, string> = {
   horizontal: "mdi:focus-field-horizontal",
 };
 
-@customElement("mushroom-layout-picker")
+@customElement("adaptive-layout-picker")
 export class LayoutPicker extends LitElement {
   @property() public label = "";
 
@@ -42,7 +42,7 @@ export class LayoutPicker extends LitElement {
     const value = this.value || "default";
 
     return html`
-      <mushroom-select
+      <adaptive-select
         icon
         .label=${this.label}
         .configValue=${this.configValue}
@@ -61,13 +61,13 @@ export class LayoutPicker extends LitElement {
             </mwc-list-item>
           `
         )}
-      </mushroom-select>
+      </adaptive-select>
     `;
   }
 
   static get styles(): CSSResultGroup {
     return css`
-      mushroom-select {
+      adaptive-select {
         width: 100%;
       }
     `;

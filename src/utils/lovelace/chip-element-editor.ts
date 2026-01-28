@@ -4,7 +4,7 @@ import { LovelaceChipConfig } from "./chip/types";
 import { MushroomElementEditor } from "./element-editor";
 import { LovelaceChipEditor } from "./types";
 
-@customElement("mushroom-chip-element-editor")
+@customElement("adaptive-chip-element-editor")
 export class MushroomChipElementEditor extends MushroomElementEditor<LovelaceChipConfig> {
   protected get configElementType(): string | undefined {
     return this.value?.type;

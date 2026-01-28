@@ -4,7 +4,7 @@ import { css, CSSResult, html, nothing } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { debounce, nextRender } from "../../ha";
 
-@customElement("mushroom-select")
+@customElement("adaptive-select")
 export class MushroomSelect extends SelectBase {
   // @ts-ignore
   @property({ type: Boolean }) public icon?: boolean;
@@ -51,6 +51,6 @@ export class MushroomSelect extends SelectBase {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "mushroom-select": MushroomSelect;
+    "adaptive-select": MushroomSelect;
   }
 }

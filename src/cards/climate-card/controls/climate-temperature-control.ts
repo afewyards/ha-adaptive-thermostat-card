@@ -17,7 +17,7 @@ export const isTemperatureControlVisible = (entity: ClimateEntity) =>
   (entity.attributes.target_temp_low != null &&
     entity.attributes.target_temp_high != null);
 
-@customElement("mushroom-climate-temperature-control")
+@customElement("adaptive-climate-temperature-control")
 export class ClimateTemperatureControl extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
@@ -80,10 +80,10 @@ export class ClimateTemperatureControl extends LitElement {
     });
 
     return html`
-      <mushroom-button-group .fill=${this.fill} ?rtl=${rtl}>
+      <adaptive-button-group .fill=${this.fill} ?rtl=${rtl}>
         ${this.entity.attributes.temperature != null
           ? html`
-              <mushroom-input-number
+              <adaptive-input-number
                 .locale=${this.hass.locale}
                 .value=${this.entity.attributes.temperature}
                 .step=${this._stepSize}
@@ -92,13 +92,13 @@ export class ClimateTemperatureControl extends LitElement {
                 .disabled=${!available}
                 .formatOptions=${formatOptions}
                 @change=${this.onValueChange}
-              ></mushroom-input-number>
+              ></adaptive-input-number>
             `
           : nothing}
         ${this.entity.attributes.target_temp_low != null &&
         this.entity.attributes.target_temp_high != null
           ? html`
-              <mushroom-input-number
+              <adaptive-input-number
                 style=${styleMap(modeStyle("heat"))}
                 .locale=${this.hass.locale}
                 .value=${this.entity.attributes.target_temp_low}
@@ -108,8 +108,8 @@ export class ClimateTemperatureControl extends LitElement {
                 .disabled=${!available}
                 .formatOptions=${formatOptions}
                 @change=${this.onLowValueChange}
-              ></mushroom-input-number
-              ><mushroom-input-number
+              ></adaptive-input-number
+              ><adaptive-input-number
                 style=${styleMap(modeStyle("cool"))}
                 .locale=${this.hass.locale}
                 .value=${this.entity.attributes.target_temp_high}
@@ -119,10 +119,10 @@ export class ClimateTemperatureControl extends LitElement {
                 .disabled=${!available}
                 .formatOptions=${formatOptions}
                 @change=${this.onHighValueChange}
-              ></mushroom-input-number>
+              ></adaptive-input-number>
             `
           : nothing}
-      </mushroom-button-group>
+      </adaptive-button-group>
     `;
   }
 }

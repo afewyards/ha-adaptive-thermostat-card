@@ -28,7 +28,7 @@ const getSliderThreshold = (element: any): number | undefined => {
   return isNaN(threshold) ? DEFAULT_SLIDER_THRESHOLD : threshold;
 };
 
-@customElement("mushroom-slider")
+@customElement("adaptive-slider")
 export class SliderItem extends LitElement {
   @property({ type: Boolean }) public disabled: boolean = false;
 

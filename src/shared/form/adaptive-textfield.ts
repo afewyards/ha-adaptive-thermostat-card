@@ -84,4 +84,4 @@ class MushroomTextField extends TextFieldBase {
   ];
 }
 
-customElements.define("mushroom-textfield", MushroomTextField);
+customElements.define("adaptive-textfield", MushroomTextField);

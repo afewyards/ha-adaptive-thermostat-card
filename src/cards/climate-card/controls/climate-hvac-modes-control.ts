@@ -18,7 +18,7 @@ export const isHvacModesVisible = (entity: ClimateEntity, modes?: HvacMode[]) =>
     (modes ?? []).includes(mode)
   );
 
-@customElement("mushroom-climate-hvac-modes-control")
+@customElement("adaptive-climate-hvac-modes-control")
 export class ClimateHvacModesControl extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
@@ -45,9 +45,9 @@ export class ClimateHvacModesControl extends LitElement {
       .sort(compareClimateHvacModes);
 
     return html`
-      <mushroom-button-group .fill=${this.fill} ?rtl=${rtl}>
+      <adaptive-button-group .fill=${this.fill} ?rtl=${rtl}>
         ${modes.map((mode) => this.renderModeButton(mode))}
-      </mushroom-button-group>
+      </adaptive-button-group>
     `;
   }
 
@@ -60,14 +60,14 @@ export class ClimateHvacModesControl extends LitElement {
     }
 
     return html`
-      <mushroom-button
+      <adaptive-button
         style=${styleMap(iconStyle)}
         .mode=${mode}
         .disabled=${!isAvailable(this.entity)}
         @click=${this.callService}
       >
         <ha-icon .icon=${getHvacModeIcon(mode)}></ha-icon>
-      </mushroom-button>
+      </adaptive-button>
     `;
   }
 }

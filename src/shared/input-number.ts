@@ -27,7 +27,7 @@ const getInputNumberDebounceTime = (element: any): number => {
   return isNaN(debounceTime) ? DEFAULT_DEBOUCE_TIME : debounceTime;
 };
 
-@customElement("mushroom-input-number")
+@customElement("adaptive-input-number")
 export class InputNumber extends LitElement {
   @property({ attribute: false }) public locale!: FrontendLocaleData;
 

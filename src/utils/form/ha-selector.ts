@@ -1,9 +1,9 @@
 import { ActionConfig } from "../../ha";
-import { MushAlignementSelector } from "./custom/ha-selector-mushroom-alignment";
-import { MushColorSelector } from "./custom/ha-selector-mushroom-color";
-import { MushIconTypeSelector } from "./custom/ha-selector-mushroom-icon-type";
-import { MushInfoSelector } from "./custom/ha-selector-mushroom-info";
-import { MushLayoutSelector } from "./custom/ha-selector-mushroom-layout";
+import { MushAlignementSelector } from "./custom/ha-selector-adaptive-alignment";
+import { MushColorSelector } from "./custom/ha-selector-adaptive-color";
+import { MushIconTypeSelector } from "./custom/ha-selector-adaptive-icon-type";
+import { MushInfoSelector } from "./custom/ha-selector-adaptive-info";
+import { MushLayoutSelector } from "./custom/ha-selector-adaptive-layout";
 
 type MushSelector =
   | MushColorSelector

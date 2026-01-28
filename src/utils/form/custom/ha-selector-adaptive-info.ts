@@ -1,17 +1,20 @@
-import { fireEvent, HomeAssistant } from "../../../ha";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import "../../../shared/editor/icon-type-picker";
+import { fireEvent, HomeAssistant } from "../../../ha";
+import "../../../shared/editor/info-picker";
+import { Info } from "../../info";
 
-export type MushIconTypeSelector = {
-  mush_icon_type: {};
+export type MushInfoSelector = {
+  mush_info: {
+    infos?: Info[];
+  };
 };
 
-@customElement("ha-selector-mush_icon_type")
-export class HaMushIconTypeSelector extends LitElement {
+@customElement("ha-selector-mush_info")
+export class HaMushInfoSelector extends LitElement {
   @property() public hass!: HomeAssistant;
 
-  @property() public selector!: MushIconTypeSelector;
+  @property() public selector!: MushInfoSelector;
 
   @property() public value?: string;
 
@@ -19,12 +22,13 @@ export class HaMushIconTypeSelector extends LitElement {
 
   protected render() {
     return html`
-      <mushroom-icon-type-picker
+      <adaptive-info-picker
         .hass=${this.hass}
+        .infos=${this.selector.mush_info.infos}
         .label=${this.label}
         .value=${this.value}
         @value-changed=${this._valueChanged}
-      ></mushroom-icon-type-picker>
+      ></adaptive-info-picker>
     `;
   }
 

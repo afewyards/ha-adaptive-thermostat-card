@@ -187,8 +187,8 @@ export class ClimateCard
       <ha-card
         class=${classMap({ "fill-container": appearance.fill_container })}
       >
-        <mushroom-card .appearance=${appearance} ?rtl=${rtl}>
-          <mushroom-state-item
+        <adaptive-card .appearance=${appearance} ?rtl=${rtl}>
+          <adaptive-state-item
             ?rtl=${rtl}
             .appearance=${appearance}
             @action=${this._handleAction}
@@ -202,7 +202,7 @@ export class ClimateCard
               : this.renderIcon(stateObj, icon)}
             ${this.renderBadge(stateObj)}
             ${this.renderStateInfo(stateObj, appearance, name, stateDisplay)};
-          </mushroom-state-item>
+          </adaptive-state-item>
           ${isControlVisible
             ? html`
                 <div class="actions" ?rtl=${rtl}>
@@ -211,7 +211,7 @@ export class ClimateCard
                 </div>
               `
             : nothing}
-        </mushroom-card>
+        </adaptive-card>
       </ha-card>
     `;
   }
@@ -230,7 +230,7 @@ export class ClimateCard
     iconStyle["--shape-color"] = `rgba(${color}, 0.2)`;
 
     return html`
-      <mushroom-shape-icon
+      <adaptive-shape-icon
         slot="icon"
         .disabled=${!available}
         style=${styleMap(iconStyle)}
@@ -240,7 +240,7 @@ export class ClimateCard
           .stateObj=${stateObj}
           .icon=${icon}
         ></ha-state-icon>
-      </mushroom-shape-icon>
+      </adaptive-shape-icon>
     `;
   }
 
@@ -270,13 +270,13 @@ export class ClimateCard
     // Check away/vacation mode
     if (isAwayMode(presetMode)) {
       return html`
-        <mushroom-badge-icon
+        <adaptive-badge-icon
           slot="badge"
           .icon=${"mdi:airplane"}
           style=${styleMap({
             "--main-color": "rgb(var(--rgb-purple))",
           })}
-        ></mushroom-badge-icon>
+        ></adaptive-badge-icon>
       `;
     }
 
@@ -286,13 +286,13 @@ export class ClimateCard
 
     if (conditionIcon && conditionColor) {
       return html`
-        <mushroom-badge-icon
+        <adaptive-badge-icon
           slot="badge"
           .icon=${conditionIcon}
           style=${styleMap({
             "--main-color": `rgb(${conditionColor})`,
           })}
-        ></mushroom-badge-icon>
+        ></adaptive-badge-icon>
       `;
     }
 
@@ -307,9 +307,9 @@ export class ClimateCard
     return html`
       ${otherControls.map(
         (ctrl) => html`
-          <mushroom-button @click=${(e) => this._onControlTap(ctrl, e)}>
+          <adaptive-button @click=${(e) => this._onControlTap(ctrl, e)}>
             <ha-icon .icon=${CONTROLS_ICONS[ctrl]}></ha-icon>
-          </mushroom-button>
+          </adaptive-button>
         `
       )}
     `;
@@ -322,20 +322,20 @@ export class ClimateCard
     switch (this._activeControl) {
       case "temperature_control":
         return html`
-          <mushroom-climate-temperature-control
+          <adaptive-climate-temperature-control
             .hass=${this.hass}
             .entity=${entity}
             .fill=${appearance.layout !== "horizontal"}
-          ></mushroom-climate-temperature-control>
+          ></adaptive-climate-temperature-control>
         `;
       case "hvac_mode_control":
         return html`
-          <mushroom-climate-hvac-modes-control
+          <adaptive-climate-hvac-modes-control
             .hass=${this.hass}
             .entity=${entity}
             .modes=${hvac_modes}
             .fill=${appearance.layout !== "horizontal"}
-          ></mushroom-climate-hvac-modes-control>
+          ></adaptive-climate-hvac-modes-control>
         `;
       default:
         return nothing;
@@ -347,11 +347,11 @@ export class ClimateCard
       super.styles,
       cardStyle,
       css`
-        mushroom-state-item {
+        adaptive-state-item {
           cursor: pointer;
         }
-        mushroom-climate-temperature-control,
-        mushroom-climate-hvac-modes-control {
+        adaptive-climate-temperature-control,
+        adaptive-climate-hvac-modes-control {
           flex: 1;
         }
       `,
