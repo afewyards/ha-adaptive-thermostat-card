@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.3.0...v1.4.0) (2026-01-28)
+
+
+### Features
+
+* add HACS icon from brands repo ([ad9018d](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/ad9018da9807652806c1026c9c8040402b1e0980))
+
 # [1.3.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.2.0...v1.3.0) (2026-01-28)
 
 
