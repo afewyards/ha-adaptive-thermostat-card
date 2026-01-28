@@ -1,5 +1,5 @@
 import { html, LitElement, nothing, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { styleMap } from "lit/directives/style-map.js";
 import {
   ClimateEntity,
@@ -8,6 +8,7 @@ import {
   isAvailable,
   UNIT_F,
 } from "../../../ha";
+import { safeCustomElement } from "../../../utils/safe-custom-element";
 import "../../../shared/button";
 import "../../../shared/button-group";
 import "../../../shared/input-number";
@@ -17,7 +18,7 @@ export const isTemperatureControlVisible = (entity: ClimateEntity) =>
   (entity.attributes.target_temp_low != null &&
     entity.attributes.target_temp_high != null);
 
-@customElement("adaptive-climate-temperature-control")
+@safeCustomElement("adaptive-climate-temperature-control")
 export class ClimateTemperatureControl extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
 

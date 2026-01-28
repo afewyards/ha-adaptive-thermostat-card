@@ -1,7 +1,8 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { customElement, property, query, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators.js";
 import { fireEvent, HASSDomEvent, HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
+import { safeCustomElement } from "../safe-custom-element";
 import "./chip-element-editor";
 import { LovelaceChipConfig } from "./chip/types";
 import { GUIModeChangedEvent, SubElementEditorConfig } from "./editor/types";
@@ -13,7 +14,7 @@ declare global {
   }
 }
 
-@customElement("adaptive-sub-element-editor")
+@safeCustomElement("adaptive-sub-element-editor")
 export class MushroomSubElementEditor extends LitElement {
   public hass!: HomeAssistant;
 

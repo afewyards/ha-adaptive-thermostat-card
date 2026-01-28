@@ -1,9 +1,10 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { property, customElement } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { animations } from "../utils/entity-styles";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
-@customElement("adaptive-shape-icon")
+@safeCustomElement("adaptive-shape-icon")
 export class ShapeIcon extends LitElement {
   @property({ type: Boolean }) public disabled?: boolean;
 

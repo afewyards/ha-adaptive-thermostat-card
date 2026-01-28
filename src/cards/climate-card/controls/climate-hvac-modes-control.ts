@@ -1,5 +1,5 @@
 import { html, LitElement, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { styleMap } from "lit/directives/style-map.js";
 import {
   ClimateEntity,
@@ -9,6 +9,7 @@ import {
   HvacMode,
   isAvailable,
 } from "../../../ha";
+import { safeCustomElement } from "../../../utils/safe-custom-element";
 import "../../../shared/button";
 import "../../../shared/button-group";
 import { getHvacModeColor, getHvacModeIcon } from "../utils";
@@ -18,7 +19,7 @@ export const isHvacModesVisible = (entity: ClimateEntity, modes?: HvacMode[]) =>
     (modes ?? []).includes(mode)
   );
 
-@customElement("adaptive-climate-hvac-modes-control")
+@safeCustomElement("adaptive-climate-hvac-modes-control")
 export class ClimateHvacModesControl extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
 

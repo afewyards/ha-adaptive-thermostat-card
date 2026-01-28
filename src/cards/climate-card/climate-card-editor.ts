@@ -1,5 +1,6 @@
 import { html, nothing } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { state } from "lit/decorators.js";
+import { safeCustomElement } from "../../utils/safe-custom-element";
 import memoizeOne from "memoize-one";
 import { assert } from "superstruct";
 import { fireEvent, LocalizeFunc, LovelaceCardEditor } from "../../ha";
@@ -50,7 +51,7 @@ const computeSchema = memoizeOne((localize: LocalizeFunc): HaFormSchema[] => [
   ...computeActionsFormSchema(),
 ]);
 
-@customElement(CLIMATE_CARD_EDITOR_NAME)
+@safeCustomElement(CLIMATE_CARD_EDITOR_NAME)
 export class ClimateCardEditor
   extends MushroomBaseElement
   implements LovelaceCardEditor

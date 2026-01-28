@@ -1,13 +1,14 @@
 import { fireEvent, HomeAssistant } from "../../../ha";
 import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { safeCustomElement } from "../../safe-custom-element";
 import "../../../shared/editor/icon-type-picker";
 
 export type MushIconTypeSelector = {
   mush_icon_type: {};
 };
 
-@customElement("ha-selector-mush_icon_type")
+@safeCustomElement("ha-selector-mush_icon_type")
 export class HaMushIconTypeSelector extends LitElement {
   @property() public hass!: HomeAssistant;
 

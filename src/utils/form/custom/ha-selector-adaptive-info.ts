@@ -1,6 +1,7 @@
 import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { fireEvent, HomeAssistant } from "../../../ha";
+import { safeCustomElement } from "../../safe-custom-element";
 import "../../../shared/editor/info-picker";
 import { Info } from "../../info";
 
@@ -10,7 +11,7 @@ export type MushInfoSelector = {
   };
 };
 
-@customElement("ha-selector-mush_info")
+@safeCustomElement("ha-selector-mush_info")
 export class HaMushInfoSelector extends LitElement {
   @property() public hass!: HomeAssistant;
 

@@ -1,8 +1,9 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
-@customElement("adaptive-button-group")
+@safeCustomElement("adaptive-button-group")
 export class MushroomButtonGroup extends LitElement {
   @property() public fill: boolean = false;
 

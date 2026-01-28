@@ -1,9 +1,10 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { Appearance } from "./config/appearance-config";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
-@customElement("adaptive-card")
+@safeCustomElement("adaptive-card")
 export class Card extends LitElement {
   @property() public appearance?: Appearance;
 

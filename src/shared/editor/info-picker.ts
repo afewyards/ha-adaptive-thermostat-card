@@ -1,11 +1,12 @@
 import { css, CSSResultGroup, html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
 import { Info, INFOS } from "../../utils/info";
+import { safeCustomElement } from "../../utils/safe-custom-element";
 import "./../form/adaptive-select";
 
-@customElement("adaptive-info-picker")
+@safeCustomElement("adaptive-info-picker")
 export class InfoPicker extends LitElement {
   @property() public label = "";
 

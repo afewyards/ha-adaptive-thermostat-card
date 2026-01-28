@@ -1,13 +1,14 @@
 import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { fireEvent, HomeAssistant } from "../../../ha";
+import { safeCustomElement } from "../../safe-custom-element";
 import "../../../shared/editor/layout-picker";
 
 export type MushLayoutSelector = {
   mush_layout: {};
 };
 
-@customElement("ha-selector-mush_layout")
+@safeCustomElement("ha-selector-mush_layout")
 export class HaMushLayoutSelector extends LitElement {
   @property() public hass!: HomeAssistant;
 

@@ -1,7 +1,8 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { property, customElement } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
-@customElement("adaptive-badge-icon")
+@safeCustomElement("adaptive-badge-icon")
 export class BadgeIcon extends LitElement {
   @property() public icon: string = "";
 

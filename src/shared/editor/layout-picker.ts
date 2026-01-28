@@ -1,7 +1,8 @@
 import { css, CSSResultGroup, html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
+import { safeCustomElement } from "../../utils/safe-custom-element";
 import "./../form/adaptive-select";
 
 const LAYOUTS = ["default", "horizontal", "vertical"] as const;
@@ -13,7 +14,7 @@ const ICONS: Record<Layout, string> = {
   horizontal: "mdi:focus-field-horizontal",
 };
 
-@customElement("adaptive-layout-picker")
+@safeCustomElement("adaptive-layout-picker")
 export class LayoutPicker extends LitElement {
   @property() public label = "";
 

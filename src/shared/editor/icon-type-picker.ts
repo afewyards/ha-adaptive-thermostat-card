@@ -1,11 +1,12 @@
 import { css, CSSResultGroup, html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
 import { ICON_TYPES } from "../../utils/info";
+import { safeCustomElement } from "../../utils/safe-custom-element";
 import "../form/adaptive-select";
 
-@customElement("adaptive-icon-type-picker")
+@safeCustomElement("adaptive-icon-type-picker")
 export class IconTypePicker extends LitElement {
   @property() public label = "";
 

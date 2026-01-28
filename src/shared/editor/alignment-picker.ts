@@ -1,7 +1,8 @@
 import { css, CSSResultGroup, html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
+import { safeCustomElement } from "../../utils/safe-custom-element";
 import "./../form/adaptive-select";
 
 const ALIGNMENT = ["default", "start", "center", "end", "justify"] as const;
@@ -15,7 +16,7 @@ const ICONS: Record<Alignment, string> = {
   justify: "mdi:format-align-justify",
 };
 
-@customElement("adaptive-alignment-picker")
+@safeCustomElement("adaptive-alignment-picker")
 export class AlignmentPicker extends LitElement {
   @property() public label = "";
 

@@ -6,7 +6,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit";
-import { customElement, property, query, state } from "lit/decorators.js";
+import { property, query, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import {
   conditionalClamp,
@@ -15,6 +15,7 @@ import {
   FrontendLocaleData,
   round,
 } from "../ha";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
 const DEFAULT_STEP = 1;
 const DEFAULT_DEBOUCE_TIME = 2000;
@@ -27,7 +28,7 @@ const getInputNumberDebounceTime = (element: any): number => {
   return isNaN(debounceTime) ? DEFAULT_DEBOUCE_TIME : debounceTime;
 };
 
-@customElement("adaptive-input-number")
+@safeCustomElement("adaptive-input-number")
 export class InputNumber extends LitElement {
   @property({ attribute: false }) public locale!: FrontendLocaleData;
 

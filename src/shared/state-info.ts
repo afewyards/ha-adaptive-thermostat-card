@@ -6,9 +6,10 @@ import {
   nothing,
   TemplateResult,
 } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
-@customElement("adaptive-state-info")
+@safeCustomElement("adaptive-state-info")
 export class StateItem extends LitElement {
   @property({ attribute: false }) public primary?: string | TemplateResult<1>;
 

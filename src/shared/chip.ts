@@ -6,10 +6,11 @@ import {
   nothing,
   TemplateResult,
 } from "lit";
-import { property, customElement } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { animations } from "../utils/entity-styles";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
-@customElement("adaptive-chip")
+@safeCustomElement("adaptive-chip")
 export class Chip extends LitElement {
   @property() public icon: string = "";
 

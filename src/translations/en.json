@@ -1,6 +1,7 @@
 {
   "card": {
-    "not_found": "Entity not found"
+    "not_found": "Entity not found",
+    "invalid_integration": "This card only works with Adaptive Thermostat entities"
   },
   "editor": {
     "section": {

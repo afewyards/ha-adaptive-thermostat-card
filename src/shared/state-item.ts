@@ -6,12 +6,13 @@ import {
   nothing,
   TemplateResult,
 } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { Appearance } from "./config/appearance-config";
+import { safeCustomElement } from "../utils/safe-custom-element";
 import "./shape-icon";
 
-@customElement("adaptive-state-item")
+@safeCustomElement("adaptive-state-item")
 export class StateItem extends LitElement {
   @property() public appearance?: Appearance;
 

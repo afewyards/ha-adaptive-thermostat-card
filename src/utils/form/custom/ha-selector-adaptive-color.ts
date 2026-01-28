@@ -1,13 +1,14 @@
 import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { fireEvent, HomeAssistant } from "../../../ha";
+import { safeCustomElement } from "../../safe-custom-element";
 import "../../../shared/editor/color-picker";
 
 export type MushColorSelector = {
   mush_color: {};
 };
 
-@customElement("ha-selector-mush_color")
+@safeCustomElement("ha-selector-mush_color")
 export class HaMushColorSelector extends LitElement {
   @property() public hass!: HomeAssistant;
 

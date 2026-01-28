@@ -6,7 +6,7 @@ import {
   PropertyValues,
   TemplateResult,
 } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { styleMap } from "lit/directives/style-map.js";
 import {
@@ -24,12 +24,14 @@ import {
   LovelaceCard,
   LovelaceCardEditor,
 } from "../../ha";
+import { safeCustomElement } from "../../utils/safe-custom-element";
 import "../../shared/badge-icon";
 import "../../shared/card";
 import "../../shared/shape-avatar";
 import "../../shared/shape-icon";
 import "../../shared/state-info";
 import "../../shared/state-item";
+import setupCustomlocalize from "../../localize";
 import { computeAppearance } from "../../utils/appearance";
 import { MushroomBaseCard } from "../../utils/base-card";
 import { cardStyle } from "../../utils/card-styles";
@@ -52,6 +54,7 @@ import {
   getAdaptiveConditionIcon,
   getAdaptiveConditionColor,
   isAwayMode,
+  isAdaptiveThermostat,
 } from "./utils";
 
 type ClimateCardControl = "temperature_control" | "hvac_mode_control";
@@ -67,7 +70,7 @@ registerCustomCard({
   description: "Card for Adaptive Thermostat",
 });
 
-@customElement(CLIMATE_CARD_NAME)
+@safeCustomElement(CLIMATE_CARD_NAME)
 export class ClimateCard
   extends MushroomBaseCard<ClimateCardConfig, ClimateEntity>
   implements LovelaceCard
@@ -162,6 +165,10 @@ export class ClimateCard
 
     if (!stateObj) {
       return this.renderNotFound(this._config);
+    }
+
+    if (!isAdaptiveThermostat(stateObj)) {
+      return this.renderInvalidIntegration(this._config);
     }
 
     const name = this._config.name || stateObj.attributes.friendly_name || "";
@@ -339,6 +346,36 @@ export class ClimateCard
       default:
         return nothing;
     }
+  }
+
+  protected renderInvalidIntegration(config: ClimateCardConfig): TemplateResult {
+    const appearance = computeAppearance(config);
+    const rtl = computeRTL(this.hass);
+    const customLocalize = setupCustomlocalize(this.hass);
+
+    return html`
+      <ha-card
+        class=${classMap({ "fill-container": appearance.fill_container })}
+      >
+        <adaptive-card .appearance=${appearance} ?rtl=${rtl}>
+          <adaptive-state-item ?rtl=${rtl} .appearance=${appearance} disabled>
+            <adaptive-shape-icon slot="icon" disabled>
+              <ha-icon icon="mdi:thermostat-box"></ha-icon>
+            </adaptive-shape-icon>
+            <adaptive-badge-icon
+              slot="badge"
+              class="invalid-integration"
+              icon="mdi:alert"
+            ></adaptive-badge-icon>
+            <adaptive-state-info
+              slot="info"
+              .primary=${config.entity}
+              .secondary=${customLocalize("card.invalid_integration")}
+            ></adaptive-state-info>
+          </adaptive-state-item>
+        </adaptive-card>
+      </ha-card>
+    `;
   }
 
   static get styles(): CSSResultGroup {

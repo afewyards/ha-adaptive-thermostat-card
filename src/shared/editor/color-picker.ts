@@ -1,12 +1,13 @@
 import { css, CSSResultGroup, html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { styleMap } from "lit/directives/style-map.js";
 import { HomeAssistant } from "../../ha";
 import setupCustomlocalize from "../../localize";
 import { COLORS, computeColorName, computeRgbColor } from "../../utils/colors";
+import { safeCustomElement } from "../../utils/safe-custom-element";
 import "./../form/adaptive-select";
 
-@customElement("adaptive-color-picker")
+@safeCustomElement("adaptive-color-picker")
 export class ColorPicker extends LitElement {
   @property() public label = "";
 

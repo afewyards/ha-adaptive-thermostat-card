@@ -1,13 +1,14 @@
 import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { fireEvent, HomeAssistant } from "../../../ha";
+import { safeCustomElement } from "../../safe-custom-element";
 import "../../../shared/editor/alignment-picker";
 
 export type MushAlignementSelector = {
   mush_alignment: {};
 };
 
-@customElement("ha-selector-mush_alignment")
+@safeCustomElement("ha-selector-mush_alignment")
 export class HaMushAlignmentSelector extends LitElement {
   @property() public hass!: HomeAssistant;
 

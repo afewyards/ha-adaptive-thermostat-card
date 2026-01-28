@@ -1,8 +1,9 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { property, customElement } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
+import { safeCustomElement } from "../utils/safe-custom-element";
 
-@customElement("adaptive-shape-avatar")
+@safeCustomElement("adaptive-shape-avatar")
 export class ShapePicture extends LitElement {
   @property() public picture_url: string = "";
 
