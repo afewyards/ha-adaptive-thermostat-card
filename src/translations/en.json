@@ -1,7 +1,28 @@
 {
   "card": {
     "not_found": "Entity not found",
-    "invalid_integration": "This card only works with Adaptive Thermostat entities"
+    "invalid_integration": "This card only works with Adaptive Thermostat entities",
+    "info_popup": {
+      "title": "Thermostat Info",
+      "status": "Status",
+      "state": "State",
+      "action": "Action",
+      "conditions": "Conditions",
+      "pid_controller": "PID Controller",
+      "control_output": "Control Output",
+      "learning": "Learning",
+      "learning_status": "Status",
+      "cycles_collected": "Cycles Collected",
+      "convergence": "Convergence",
+      "night_setback": "Night Setback",
+      "setback_delta": "Temperature Offset",
+      "setback_end": "Ends At",
+      "environment": "Environment",
+      "outdoor_temp": "Outdoor Temp",
+      "statistics": "Statistics",
+      "heater_cycles": "Heater Cycles",
+      "cooler_cycles": "Cooler Cycles"
+    }
   },
   "editor": {
     "section": {

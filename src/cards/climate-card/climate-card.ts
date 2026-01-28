@@ -26,6 +26,7 @@ import {
 } from "../../ha";
 import { safeCustomElement } from "../../utils/safe-custom-element";
 import "../../shared/badge-icon";
+import "../../shared/button";
 import "../../shared/card";
 import "../../shared/shape-avatar";
 import "../../shared/shape-icon";
@@ -47,6 +48,7 @@ import "./controls/climate-hvac-modes-control";
 import { isHvacModesVisible } from "./controls/climate-hvac-modes-control";
 import "./controls/climate-temperature-control";
 import { isTemperatureControlVisible } from "./controls/climate-temperature-control";
+import "./info-popup";
 import {
   getHvacActionColor,
   getHvacActionIcon,
@@ -96,6 +98,7 @@ export class ClimateCard
   }
 
   @state() private _activeControl?: ClimateCardControl;
+  @state() private _infoPopupOpen = false;
 
   private get _controls(): ClimateCardControl[] {
     if (!this._config || !this._stateObj) return [];
@@ -215,11 +218,21 @@ export class ClimateCard
                 <div class="actions" ?rtl=${rtl}>
                   ${this.renderActiveControl(stateObj)}
                   ${this.renderOtherControls()}
+                  ${this.renderInfoButton()}
                 </div>
               `
             : nothing}
         </adaptive-card>
       </ha-card>
+      ${this._infoPopupOpen
+        ? html`
+            <adaptive-climate-info-popup
+              .hass=${this.hass}
+              .entity=${stateObj}
+              @close=${() => (this._infoPopupOpen = false)}
+            ></adaptive-climate-info-popup>
+          `
+        : nothing}
     `;
   }
 
@@ -318,6 +331,14 @@ export class ClimateCard
           </adaptive-button>
         `
       )}
+    `;
+  }
+
+  private renderInfoButton(): TemplateResult {
+    return html`
+      <adaptive-button @click=${() => (this._infoPopupOpen = true)}>
+        <ha-icon icon="mdi:information-outline"></ha-icon>
+      </adaptive-button>
     `;
   }
 
