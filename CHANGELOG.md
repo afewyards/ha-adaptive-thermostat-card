@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.6.2...v1.7.0) (2026-01-29)
+
+
+### Features
+
+* hide HVAC mode button when auto mode switching is enabled ([eb973c6](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/eb973c69077a476cb226d2416277a25392fb33f5))
+
 ## [1.6.2](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.6.1...v1.6.2) (2026-01-28)
 
 
