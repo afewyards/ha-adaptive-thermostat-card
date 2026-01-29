@@ -55,6 +55,9 @@ export class InputNumber extends LitElement {
   @property({ type: Boolean })
   public swapDisplay: boolean = false;
 
+  @property({ type: Boolean })
+  public strikethrough: boolean = false;
+
   @state() pending = false;
 
   private get _precision() {
@@ -143,6 +146,7 @@ export class InputNumber extends LitElement {
               value: true,
               pending: this.pending,
               disabled: this.disabled,
+              strikethrough: this.strikethrough,
             })}
           >
             ${primaryDisplay}
@@ -243,6 +247,10 @@ export class InputNumber extends LitElement {
       }
       .value.pending {
         opacity: 0.5;
+      }
+      .value.strikethrough {
+        text-decoration: line-through;
+        opacity: 0.6;
       }
       .secondary-value {
         text-align: center;

@@ -115,6 +115,7 @@ export class ClimateTemperatureControl extends LitElement {
                 .min=${this.entity.attributes.min_temp}
                 .max=${this.entity.attributes.max_temp}
                 .disabled=${!available}
+                .strikethrough=${this.entity.state === "off"}
                 .formatOptions=${formatOptions}
                 @change=${this.onValueChange}
               ></adaptive-input-number>

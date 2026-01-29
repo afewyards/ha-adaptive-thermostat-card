@@ -194,9 +194,14 @@ export class ClimateCard
       (!this._config.collapsible_controls || isActive(stateObj)) &&
       this._controls.length;
 
+    const isOff = stateObj.state === "off";
+
     return html`
       <ha-card
-        class=${classMap({ "fill-container": appearance.fill_container })}
+        class=${classMap({
+          "fill-container": appearance.fill_container,
+          "state-off": isOff,
+        })}
       >
         <adaptive-card .appearance=${appearance} ?rtl=${rtl}>
           <adaptive-state-item
@@ -411,6 +416,12 @@ export class ClimateCard
         adaptive-climate-temperature-control,
         adaptive-climate-hvac-modes-control {
           flex: 1;
+        }
+        ha-card.state-off adaptive-state-item {
+          opacity: 0.5;
+        }
+        ha-card.state-off .actions {
+          opacity: 0.6;
         }
       `,
     ];
