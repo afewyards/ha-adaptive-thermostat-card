@@ -242,7 +242,7 @@ export class ClimateCard
 
     // Use hvac_action for background color (shows actual heating/cooling state)
     const hvacAction = stateObj.attributes.hvac_action;
-    const color = hvacAction && hvacAction !== "idle" && hvacAction !== "off"
+    const color = hvacAction
       ? getHvacActionColor(hvacAction)
       : getHvacModeColor(stateObj.state as HvacMode);
 
