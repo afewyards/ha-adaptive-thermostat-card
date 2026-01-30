@@ -1,3 +1,14 @@
+# [1.10.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.9.0...v1.10.0) (2026-01-30)
+
+
+### Features
+
+* **i18n:** add PID history translation keys ([bc628be](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/bc628befaeced43a9c74a07192646434521ed857))
+* **info-popup:** add PID history section renderer ([a37d16b](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/a37d16be940420ee1b1c789fa6eabadee1e95912))
+* **info-popup:** add PID history service handlers ([45af81f](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/45af81f3d5f9c739184e5e072faf40faef4568aa))
+* **info-popup:** add PidHistoryEntry interface ([46e5c3b](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/46e5c3b72b3d73be4a92ec0c1504d98a9e24e365))
+* **info-popup:** add relative time formatter ([888050c](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/888050c2d866a9018acce8147c9e9cbe9941fc4c))
+
 # [1.9.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.8.0...v1.9.0) (2026-01-29)
 
 
