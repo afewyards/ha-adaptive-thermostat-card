@@ -79,7 +79,6 @@ export class ClimateInfoPopup extends LitElement {
             ${this._renderNightSetbackSection(attrs, customLocalize)}
             ${this._renderEnvironmentSection(attrs, customLocalize)}
             ${this._renderStatisticsSection(attrs, customLocalize)}
-            ${this._renderPidHistorySection(attrs, customLocalize)}
           </div>
         </div>
       </div>
@@ -180,41 +179,6 @@ export class ClimateInfoPopup extends LitElement {
               </div>
             `
           : nothing}
-      </section>
-    `;
-  }
-
-  private _renderPidHistorySection(
-    attrs: AdaptiveAttributes,
-    localize: ReturnType<typeof setupCustomlocalize>
-  ): TemplateResult | typeof nothing {
-    const history = attrs.pid_history;
-    if (!history || history.length === 0) {
-      return nothing;
-    }
-
-    return html`
-      <section>
-        <h3>${localize("card.info_popup.pid_history")}</h3>
-        <div class="history-table">
-          <div class="history-header">
-            <span>${localize("card.info_popup.time")}</span>
-            <span>Kp</span>
-            <span>Ki</span>
-            <span>Kd</span>
-          </div>
-          ${history.slice(-5).reverse().map(
-            (entry) => html`
-              <div class="history-row">
-                <span class="history-time">${this._formatDateTime(entry.timestamp)}</span>
-                <span>${this._formatNumber(entry.kp)}</span>
-                <span>${this._formatNumber(entry.ki, 4)}</span>
-                <span>${this._formatNumber(entry.kd)}</span>
-              </div>
-              <div class="history-reason">${entry.reason}</div>
-            `
-          )}
-        </div>
       </section>
     `;
   }
