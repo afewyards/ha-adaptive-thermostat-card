@@ -308,51 +308,34 @@ private _renderPidHistorySection(
       return nothing;
     }
 
+    // Reverse to show newest first, but track original index for service calls
+    const reversedHistory = [...attrs.pid_history].map((entry, idx) => ({ entry, originalIndex: idx })).reverse();
+
     return html`
       <section>
         <h3>${localize("card.info_popup.pid_history")}</h3>
-        ${attrs.pid_history.map(
-          (entry, index) => html`
+        ${reversedHistory.map(
+          ({ entry, originalIndex }) => html`
             <div class="history-entry">
               <div class="history-entry-header">
-                <span class="value">${this._formatRelativeTime(entry.timestamp)}</span>
+                <span class="history-gains">
+                  Kp:${this._formatNumber(entry.kp)} Ki:${this._formatNumber(entry.ki, 4)} Kd:${this._formatNumber(entry.kd)} Ke:${this._formatNumber(entry.ke)}
+                </span>
                 <div class="history-actions">
                   <button
                     class="history-btn"
-                    @click=${() => this._restorePidHistory(index)}
+                    @click=${() => this._restorePidHistory(originalIndex)}
                     title=${localize("card.info_popup.restore")}
-                  >
-                    ↺
-                  </button>
+                  >↺</button>
                   <button
                     class="history-btn"
-                    @click=${() => this._deletePidHistory(index)}
+                    @click=${() => this._deletePidHistory(originalIndex)}
                     title=${localize("card.info_popup.delete")}
-                  >
-                    ✕
-                  </button>
-                </div>
-              </div>
-              <div class="history-gains">
-                <div class="row">
-                  <span class="label">Kp</span>
-                  <span class="value">${this._formatNumber(entry.kp)}</span>
-                </div>
-                <div class="row">
-                  <span class="label">Ki</span>
-                  <span class="value">${this._formatNumber(entry.ki, 4)}</span>
-                </div>
-                <div class="row">
-                  <span class="label">Kd</span>
-                  <span class="value">${this._formatNumber(entry.kd)}</span>
-                </div>
-                <div class="row">
-                  <span class="label">Ke</span>
-                  <span class="value">${this._formatNumber(entry.ke)}</span>
+                  >✕</button>
                 </div>
               </div>
               <div class="history-meta">
-                ${entry.reason} • ${entry.actor}
+                ${this._formatRelativeTime(entry.timestamp)} · ${entry.reason}
               </div>
             </div>
           `
@@ -574,22 +557,23 @@ private _renderPidHistorySection(
 
 /* PID History entry styles */
       .history-entry {
-        border: 1px solid var(--divider-color, rgba(0, 0, 0, 0.12));
-        border-radius: 8px;
-        padding: 12px;
-        background: var(--secondary-background-color, rgba(0, 0, 0, 0.03));
-        margin-bottom: 8px;
+        border-bottom: 1px solid var(--divider-color, rgba(0, 0, 0, 0.08));
+        padding: 8px 0;
       }
 
       .history-entry:last-child {
-        margin-bottom: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .history-entry:first-child {
+        padding-top: 0;
       }
 
       .history-entry-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 8px;
       }
 
       .history-actions {
@@ -620,16 +604,15 @@ private _renderPidHistorySection(
       }
 
       .history-gains {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        margin: 8px 0;
+        font-size: 13px;
+        font-family: monospace;
+        color: var(--primary-text-color);
       }
 
       .history-meta {
-        font-size: 12px;
+        font-size: 11px;
         color: var(--secondary-text-color);
-        margin-top: 6px;
+        margin-top: 2px;
       }
 
       /* Dark mode adjustments handled by HA theme variables */
