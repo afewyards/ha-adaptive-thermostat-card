@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.10.0...v1.10.1) (2026-01-30)
+
+
+### Bug Fixes
+
+* **info-popup:** remove duplicate PID history implementations ([387f37b](https://github.com/afewyards/ha-adaptive-thermostat-card/commit/387f37b697b1de03083423147d44c253ae4ba73e))
+
 # [1.10.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.9.0...v1.10.0) (2026-01-30)
 
 
