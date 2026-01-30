@@ -493,51 +493,64 @@ export class ClimateInfoPopup extends LitElement {
         --mdc-icon-size: 14px;
       }
 
-      .history-table {
-        font-size: 12px;
+/* PID History entry styles */
+      .history-entry {
+        border: 1px solid var(--divider-color, rgba(0, 0, 0, 0.12));
+        border-radius: 8px;
+        padding: 12px;
+        background: var(--secondary-background-color, rgba(0, 0, 0, 0.03));
+        margin-bottom: 8px;
       }
 
-      .history-header {
-        display: grid;
-        grid-template-columns: 1fr repeat(3, 50px);
-        gap: 8px;
-        padding: 6px 0;
-        border-bottom: 1px solid var(--divider-color, rgba(0, 0, 0, 0.12));
+      .history-entry:last-child {
+        margin-bottom: 0;
+      }
+
+      .history-entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .history-actions {
+        display: flex;
+        gap: 4px;
+      }
+
+      .history-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: var(--secondary-text-color);
-        font-weight: 500;
-        text-align: right;
+        transition: background-color 0.2s, color 0.2s;
       }
 
-      .history-header span:first-child {
-        text-align: left;
-      }
-
-      .history-row {
-        display: grid;
-        grid-template-columns: 1fr repeat(3, 50px);
-        gap: 8px;
-        padding: 6px 0 2px;
+      .history-btn:hover {
+        background: var(--divider-color, rgba(0, 0, 0, 0.12));
         color: var(--primary-text-color);
-        text-align: right;
       }
 
-      .history-row span:first-child {
-        text-align: left;
+      .history-btn ha-icon {
+        --mdc-icon-size: 18px;
       }
 
-      .history-time {
+      .history-gains {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin: 8px 0;
+      }
+
+      .history-meta {
+        font-size: 12px;
         color: var(--secondary-text-color);
-      }
-
-      .history-reason {
-        padding: 0 0 6px;
-        color: var(--secondary-text-color);
-        font-style: italic;
-        border-bottom: 1px solid var(--divider-color, rgba(0, 0, 0, 0.06));
-      }
-
-      .history-reason:last-child {
-        border-bottom: none;
+        margin-top: 6px;
       }
 
       /* Dark mode adjustments handled by HA theme variables */
