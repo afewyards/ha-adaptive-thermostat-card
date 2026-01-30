@@ -26,12 +26,9 @@ interface AdaptiveAttributes {
     setback_delta?: number;
     setback_end?: string;
   };
-  // PID values are flat on attributes
-  kp?: number;
-  ki?: number;
-  kd?: number;
+  // Control output (live value)
   control_output?: number;
-  // PID history
+  // PID history (current gains are derived from latest entry)
   pid_history?: PidHistoryEntry[];
   // Learning values are flat on attributes
   learning_status?: string;
@@ -140,34 +137,33 @@ export class ClimateInfoPopup extends LitElement {
     attrs: AdaptiveAttributes,
     localize: ReturnType<typeof setupCustomlocalize>
   ): TemplateResult | typeof nothing {
-    if (attrs.kp === undefined && attrs.ki === undefined && attrs.kd === undefined) {
+    // Get current PID values from latest history entry
+    const latest = attrs.pid_history?.[attrs.pid_history.length - 1];
+
+    if (!latest && attrs.control_output === undefined) {
       return nothing;
     }
 
     return html`
       <section>
         <h3>${localize("card.info_popup.pid_controller")}</h3>
-        ${attrs.kp !== undefined
+        ${latest
           ? html`
               <div class="row">
                 <span class="label">Kp</span>
-                <span class="value">${this._formatNumber(attrs.kp)}</span>
+                <span class="value">${this._formatNumber(latest.kp)}</span>
               </div>
-            `
-          : nothing}
-        ${attrs.ki !== undefined
-          ? html`
               <div class="row">
                 <span class="label">Ki</span>
-                <span class="value">${this._formatNumber(attrs.ki)}</span>
+                <span class="value">${this._formatNumber(latest.ki, 4)}</span>
               </div>
-            `
-          : nothing}
-        ${attrs.kd !== undefined
-          ? html`
               <div class="row">
                 <span class="label">Kd</span>
-                <span class="value">${this._formatNumber(attrs.kd)}</span>
+                <span class="value">${this._formatNumber(latest.kd)}</span>
+              </div>
+              <div class="row">
+                <span class="label">Ke</span>
+                <span class="value">${this._formatNumber(latest.ke)}</span>
               </div>
             `
           : nothing}
