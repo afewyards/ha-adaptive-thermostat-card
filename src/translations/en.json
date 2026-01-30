@@ -23,7 +23,14 @@
       "outdoor_temp": "Outdoor Temp",
       "statistics": "Statistics",
       "heater_cycles": "Heater Cycles",
-      "cooler_cycles": "Cooler Cycles"
+      "cooler_cycles": "Cooler Cycles",
+      "pid_history": "PID History",
+      "restore": "Restore",
+      "delete": "Delete",
+      "confirm_restore": "Restore these PID gains?",
+      "confirm_delete": "Delete this history entry?",
+      "reason": "Reason",
+      "actor": "Actor"
     }
   },
   "editor": {
