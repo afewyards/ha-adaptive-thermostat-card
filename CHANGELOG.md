@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/afewyards/ha-adaptive-climate-card/compare/v2.2.0...v2.3.0) (2026-01-31)
+
+
+### Features
+
+* add support for tuned learning status ([f0c0c45](https://github.com/afewyards/ha-adaptive-climate-card/commit/f0c0c453d20751de43e6143bb39c49d6b2fd6bd7))
+
 # [2.2.0](https://github.com/afewyards/ha-adaptive-climate-card/compare/v2.1.0...v2.2.0) (2026-01-31)
 
 
