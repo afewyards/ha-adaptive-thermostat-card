@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/afewyards/ha-adaptive-climate-card/compare/v2.1.0...v2.2.0) (2026-01-31)
+
+
+### Features
+
+* update icon to brain thermometer design ([d6e4e8a](https://github.com/afewyards/ha-adaptive-climate-card/commit/d6e4e8a834408bcccce0f1addec668fabf2989bb))
+
 # [2.1.0](https://github.com/afewyards/ha-adaptive-climate-card/compare/v2.0.0...v2.1.0) (2026-01-31)
 
 
