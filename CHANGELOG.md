@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/afewyards/ha-adaptive-climate-card/compare/v2.0.0...v2.1.0) (2026-01-31)
+
+
+### Features
+
+* update HACS icon ([3bf74fa](https://github.com/afewyards/ha-adaptive-climate-card/commit/3bf74fad6186f7cf0b500bd48397a46a026feeb9))
+
 # [2.0.0](https://github.com/afewyards/ha-adaptive-climate-card/compare/v1.11.0...v2.0.0) (2026-01-31)
 
 
