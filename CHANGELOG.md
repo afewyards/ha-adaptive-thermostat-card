@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/afewyards/ha-adaptive-climate-card/compare/v1.11.0...v2.0.0) (2026-01-31)
+
+
+* feat!: rename project to adaptive-climate-card ([30b2ac0](https://github.com/afewyards/ha-adaptive-climate-card/commit/30b2ac039bd6af0479c8da67654600bbde8fa7a5))
+
+
+### BREAKING CHANGES
+
+* Card type changed from custom:adaptive-thermostat-card
+to custom:adaptive-climate-card. Users must update their Lovelace config.
+
+- Rename all references from adaptive-thermostat to adaptive-climate
+- Update service domain to adaptive_climate
+- Update integration attribute checks
+- Update build output filename
+- Update repository URLs in documentation
+
 # [1.11.0](https://github.com/afewyards/ha-adaptive-thermostat-card/compare/v1.10.3...v1.11.0) (2026-01-30)
 
 
